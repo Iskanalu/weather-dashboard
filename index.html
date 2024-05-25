@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather-Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <header class="weather-header">
+        <h1>Weather Dashboard</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <form>
+                    <div class="form-search">
+                        <label for="city" class="form-label">Search for a City</label>
+                        <input id="city" class="search-city form-control" placeholder="San Diego">
+                    </div>
+                    <button id="searchButton" type="submit" class="search-btn btn btn-primary">Search</button>
+                </form>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="current-city">
+                            <h3>City Name</h3>
+                            <p>Temp</p>
+                            <p>Wind</p>
+                            <p>Humidty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="weather-id">
+                    <h4>5-Day Forecast</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="./assets/js/script.js"></script>
+</body>
