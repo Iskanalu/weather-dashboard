@@ -19,6 +19,13 @@
 .search-btn {
     width: 100%;
 }
+
+.history-button {
+    width: 100%;
+    background-color: lightgray;
+    margin: 5px;
+    
+}
 .current-city {
     border: black 1px solid;
    color: black;

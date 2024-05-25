@@ -1,20 +1,28 @@
-// agregar el evento del click del botton search y ejecutar la funcion de getData adentro.
 const searchButton = document.getElementById('searchButton');
-
+const citiesHistory = JSON.parse(localStorage.getItem('cities')) || [];
 searchButton.addEventListener('click', (e) => {
   e.preventDefault();
   getData();
 });
-//  function getWeatherIcon
 
-//  if clouds then return emojiClouds
-//  if sun then return emojiSun
-//  etc etc Rain, Snow, Clouds, Clear
+async function getData() {
 
-async function getData() {  
-
-  // obtener el valor del input com id=city
     const city = document.getElementById('city').value;
+    const newCitiesHistory = citiesHistory.concat(city);
+    localStorage.setItem('cities', JSON.stringify(newCitiesHistory));
+    document.getElementById('history-city').innerHTML = '';
+
+    newCitiesHistory.forEach((HistoryCity) => {
+      const newCity = document.createElement('button');
+      newCity.classList.add('btn');
+      newCity.classList.add('history-button');
+      newCity.innerHTML = HistoryCity;
+      newCity.addEventListener('click', () => {
+        document.getElementById('city').value = HistoryCity;
+        getData();
+      });
+      document.getElementById('history-city').appendChild(newCity);
+    });
 
     const geocodeRes = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=76d841795ac608aab43b884022bf69ec`
